@@ -9,17 +9,25 @@ trigger:
 jobs:
 - job: BuildAndPublish
   pool:
-    name: Default
-
+    name: Default  
+    demands:
+    - Agent.Name -equals DESKTOP-1FLQ4P5  
   steps:
   - task: NodeTool@0
     inputs:
       versionSpec: '14.x'
     displayName: 'Install Node.js'
+    
+  - task: Cache@2
+  inputs:
+    key: 'npm | "$(Agent.OS)" | package-lock.json'
+    path: $(npm_cache_dir)
+    cacheHitVar: 'CACHE_RESTORED'
+    displayName: 'Cache npm packages'
 
   - script: |
       npm install
-      npm run build --output-path=D:\Dev\1\s
+      npm run build
     displayName: 'npm install and build'
 
   - task: PublishBuildArtifacts@1
@@ -27,7 +35,5 @@ jobs:
       PathtoPublish: 'D:\Dev\1\s'
       ArtifactName: 'drop'
       publishLocation: 'Container'
-
-
 
 
