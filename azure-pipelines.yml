@@ -25,7 +25,7 @@ jobs:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: 'D:\Dev\1\s\build'
+      PathtoPublish: 'D:\Dev\1\s'
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
