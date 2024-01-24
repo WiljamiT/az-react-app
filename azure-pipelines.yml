@@ -37,4 +37,17 @@ jobs:
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.ArtifactStagingDirectory)'
+      Contents: '**/*.zip'
+      TargetFolder: 'D:\Dev'
+      
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'D:\Dev'
+      ArtifactName: 'drop'
+      publishLocation: 'FilePath'
+
+
 
