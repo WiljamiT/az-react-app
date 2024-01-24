@@ -22,10 +22,19 @@ jobs:
       npm install
       npm run build
     displayName: 'npm install and build'
-  - task: PublishPipelineArtifact@0
-    displayName: 'Publish pipeline artifact'
+    
+  - task: ArchiveFiles@2
     inputs:
-      artifactName: 'new'
-      targetPath: '$(Build.ArtifactStagingDirectory)'
+      rootFolderOrFile: '$(Build.BinariesDirectory)'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
 
 
