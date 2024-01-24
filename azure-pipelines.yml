@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  DESKTOP-1FLQ4P5
 
 jobs:
 - job: BuildAndPublish
