@@ -9,45 +9,25 @@ trigger:
 jobs:
 - job: BuildAndPublish
   pool:
-    name: Default  
-    demands:
-    - Agent.Name -equals DESKTOP-1FLQ4P5  
+    name: Default
+
   steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '10.x'
+      versionSpec: '14.x'
     displayName: 'Install Node.js'
 
   - script: |
       npm install
-      npm run build
+      npm run build --output-path=D:\Dev\1\s
     displayName: 'npm install and build'
-    
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(Build.BinariesDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: 'D:\Dev\1\s'
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(Build.ArtifactStagingDirectory)'
-      Contents: '**/*.zip'
-      TargetFolder: 'D:\Dev'
-      
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: 'D:\Dev'
-      ArtifactName: 'drop'
-      publishLocation: 'FilePath'
 
 
 
