@@ -22,11 +22,10 @@ jobs:
       npm install
       npm run build
     displayName: 'npm install and build'
-
-  - task: PublishBuildArtifacts@1
+  - task: PublishPipelineArtifact@0
+    displayName: 'Publish pipeline artifact'
     inputs:
-      PathtoPublish: 'D:\Dev\1\s'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
+      artifactName: 'new'
+      targetPath: '$(Build.ArtifactStagingDirectory)'
 
 
