@@ -7,10 +7,12 @@ trigger:
 - master
 
 pool:
-  DESKTOP-1FLQ4P5
+  name: DESKTOP-1FLQ4P5
 
 jobs:
 - job: BuildAndPublish
+  pool:
+    name: DESKTOP-1FLQ4P5
   steps:
   - task: NodeTool@0
     inputs:
