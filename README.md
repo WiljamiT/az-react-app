@@ -11,7 +11,7 @@ React app deployed on Azure App Service.
 
 ### Features
 
-- Fetches data from and displays it in UI.
+- Fetches data and displays it in UI.
 
 ## App is built and deployed using Azure DevOps pipelines.
 
