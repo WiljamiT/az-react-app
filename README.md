@@ -26,6 +26,6 @@ React app deployed on Azure App Service.
 
 
 <code>demands:
-    - Agent.Name -equals DESKTOP-1FLQ4P5</code>
+    - Agent.Name -equals XXX</code>
 
 
