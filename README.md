@@ -2,7 +2,7 @@
 
 ## Overview
 
-React app deployed on Azure App Service.
+React app deployed on Azure App Service. [https://azure.microsoft.com/en-us/products/app-service](https://azure.microsoft.com/en-us/products/app-service)
 
 - **React App URL**: [https://wt-app.azurewebsites.net/](https://wt-app.azurewebsites.net/)
 - **Web API Base URL**: https://XXX.azurewebsites.net
