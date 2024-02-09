@@ -1,4 +1,9 @@
-# AZ REACT APP
+# This is only a skeleton
+
+** Private: **[https://dev.azure.com/aa4499/\_git/react-app-cicd](https://dev.azure.com/aa4499/_git/react-app-cicd)
+
+![Lighthouse](/public/lighthouse.PNG)
+![Wave](/public/wave.PNG)
 
 ## Overview
 
@@ -20,12 +25,8 @@ React app deployed on Azure App Service. [https://azure.microsoft.com/en-us/prod
 - **Build Pipeline**: Install, build and artifact drop.
 - **Release Pipeline**: Custom deployment script to deploy the React app to the Azure App Service.
 
-## Uses Default agent (Local) 
+## Uses Default agent (Local)
 
 ### Project settings > Agent pools > Default > Agents > New agent
 
-
-<code>demands:
-    - Agent.Name -equals XXX</code>
-
-
+<code>demands: - Agent.Name -equals XXX</code>
